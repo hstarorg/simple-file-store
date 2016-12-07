@@ -1,0 +1,25 @@
+{
+  "name": "simple-file-store",
+  "version": "0.0.1",
+  "description": "Simple file store",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://trgit2/backend_framework/simple-file-store.git"
+  },
+  "keywords": [
+    "Store",
+    "Simple",
+    "Image"
+  ],
+  "author": "Jay.M.Hu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "gm": "^1.23.0"
+  }
+}
