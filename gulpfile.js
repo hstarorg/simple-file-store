@@ -17,7 +17,7 @@ gulp.task('watch', () => {
   ], developServer.restart);
 });
 
-gulp.task('copy', () => {
+gulp.task('build', () => {
   rm('-rf', 'dist');
   return gulp.src([
     'src/**/*',
@@ -32,6 +32,6 @@ gulp.task('installDeps', done => {
   done();
 });
 
-gulp.task('release', gulp.series('copy', 'installDeps'));
+gulp.task('release', gulp.series('build', 'installDeps'));
 
 gulp.task('default', gulp.parallel('serve', 'watch'));

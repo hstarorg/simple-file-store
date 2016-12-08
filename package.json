@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp4",
-    "build": "gulp4 release",
+    "build": "gulp4 build",
+    "release": "gulp4 release",
     "test": "test"
   },
   "repository": {

@@ -46,8 +46,11 @@ npm i
 # 启动构建并运行
 npm run dev 
 
-# 生成部署包
+# 生成部署包（不包含node_modules）
 npm run build
+
+# 生成部署包（包含node_modules）
+npm run release
 ```
 
 ## 其他
