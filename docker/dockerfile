@@ -1,0 +1,15 @@
+FROM docker.neg/bts/graphics-magick:1.3.25-withnode
+
+MAINTAINER jh3r jay.m.hu@newegg.com
+
+COPY dumb-init /usr/local/bin/dumb-init
+
+COPY dist /dist
+
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+
+WORKDIR /dist
+
+EXPOSE 1002
+
+CMD ["node", "index.js"]
