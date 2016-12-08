@@ -5,6 +5,8 @@ const config = require('./../config');
 const util = require('./../common/util');
 const db = require('./../common/db');
 
+const imageExts = ['.jpg', '.png', '.jpeg', '.bmp'];
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let store = req.body.store || 'default';
@@ -81,6 +83,11 @@ module.exports = {
   },
   processImage(req, res, next) {
     let filepath = res.locals.filepath;
+    let extName = path.extname(filepath);
+    // 不是图片格式，直接跳过
+    if (!imageExts.includes(extName)) {
+      return next();
+    }
     let w = +req.query.w;
     let h = +req.query.h;
     let p = Promise.resolve();
@@ -94,7 +101,6 @@ module.exports = {
           }
         })
         .then(() => {
-          let extName = path.extname(filepath)
           let targetFilepath = filepath.replace(new RegExp(extName + '$'), `_${w}_${h}${extName}`);
           return util.resizeImage(filepath, targetFilepath, w, h);
         })
