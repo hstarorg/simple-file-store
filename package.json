@@ -4,7 +4,7 @@
   "description": "Simple file store",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/index.js",
+    "dev": "gulp4",
     "test": "test"
   },
   "repository": {
@@ -20,6 +20,14 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "gm": "^1.23.0"
+    "gm": "^1.23.0",
+    "lru-cache": "^4.0.2",
+    "multer": "^1.2.0",
+    "nedb": "^1.8.0",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp-develop-server": "^0.5.2",
+    "gulp4": "^4.0.1"
   }
 }
