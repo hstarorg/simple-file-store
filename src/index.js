@@ -17,8 +17,12 @@ app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 
+process.on('uncaughtException', err => {
+  console.error(err);
+});
+
 const server = http.createServer(app)
-  .listen(3000, err => {
+  .listen(config.port, err => {
     if (err) {
       console.error(err);
     }
