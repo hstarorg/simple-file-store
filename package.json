@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp4",
+    "build": "gulp4 release",
     "test": "test"
   },
   "repository": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "gulp-develop-server": "^0.5.2",
-    "gulp4": "^4.0.1"
+    "gulp4": "^4.0.1",
+    "shelljs": "^0.7.5"
   }
 }

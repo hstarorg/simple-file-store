@@ -1,3 +1,5 @@
+require('shelljs/global');
+const path = require('path');
 const gulp = require('gulp4');
 const developServer = require('gulp-develop-server');
 
@@ -14,5 +16,22 @@ gulp.task('watch', () => {
     '!src/database*'
   ], developServer.restart);
 });
+
+gulp.task('copy', () => {
+  rm('-rf', 'dist');
+  return gulp.src([
+    'src/**/*',
+    '!src/database*',
+    'package.json'
+  ]).pipe(gulp.dest('dist'));
+});
+
+gulp.task('installDeps', done => {
+  cd('dist');
+  exec('npm i --production');
+  done();
+});
+
+gulp.task('release', gulp.series('copy', 'installDeps'));
 
 gulp.task('default', gulp.parallel('serve', 'watch'));

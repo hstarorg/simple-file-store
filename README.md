@@ -45,6 +45,9 @@ npm i
 
 # 启动构建并运行
 npm run dev 
+
+# 生成部署包
+npm run build
 ```
 
 ## 其他
